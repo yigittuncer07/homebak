@@ -1,6 +1,6 @@
 [project]
 name = "homebak"
-version = "0.1.0b2"
+version = "0.1.0b4"
 description = "Simple, configurable home directory backup tool"
 readme = "README.md"
 authors = [{ name = "Yigit Tuncer", email = "yigittuncer@gmail.com" }]

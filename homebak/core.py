@@ -21,7 +21,7 @@ def compress_backup(backup_path, output_file):
     shutil.rmtree(backup_path)
     logging.info(f"Compression completed. Backup saved as {output_file}")
 
-def backup_home_directory(config, timestamp, dry_run=False):
+def backup_home_directory(config, timestamp, dry_run=False, compress=False):
     home_dir = os.path.expanduser("~")
     backup_dir = os.path.expanduser(config["backup_location"]).replace("$USER", os.getenv('USER'))
     excluded_directories_names = config.get("exclude_directory_names", [])
@@ -77,13 +77,14 @@ def backup_home_directory(config, timestamp, dry_run=False):
     logging.info(f"Backup completed successfully: {backup_path}")
     if dry_run:
         print("🟡 Dry run complete.")
-        print(f"🗂 Backup would be created at: {backup_path}.tar.gz")
+        print(f"🗂 Backup would be created at: {backup_path}")
         print("📁 No files were copied.")
         return
 
-
-    compressed_file = os.path.join(backup_dir, f"backup_{timestamp}.tar.gz")
-    compress_backup(backup_path, compressed_file)
+    if compress:
+        compressed_file = os.path.join(backup_dir, f"backup_{timestamp}.tar.gz")
+        compress_backup(backup_path, compressed_file)
+        logging.info(f"Backup saved as {compressed_file}")
 
     if failed_files:
         logging.info("The following files failed to copy:")

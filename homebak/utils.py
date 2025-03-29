@@ -11,7 +11,6 @@ def should_exclude(path, excluded_names):
         return True
     if any(part in excluded_names for part in parts):
         return True
-    # print(f"parts: {parts}, excluded_names: {excluded_names}")
     return False
 
 

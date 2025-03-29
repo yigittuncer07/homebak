@@ -35,6 +35,7 @@ def main():
     parser.add_argument("--yes", "-y", action="store_true", help="Skip confirmation")
     parser.add_argument("--dry-run", action="store_true", help="Show what would be backed up, but don’t do it")
     parser.add_argument("--version", action="version", version=f"%(prog)s {__version__}")
+    parser.add_argument("--compress", action="store_true", help="Compress the backup")
 
     args = parser.parse_args()
 
@@ -50,6 +51,7 @@ def main():
     print(f"🔹 Backup location : {config['backup_location'].replace('$USER', os.getenv('USER'))}")
     print(f"🔹 Excluded directory names   : {', '.join(config.get('exclude_directory_names', [])) or 'None'}")
     print(f"🔹 Timeout (sec)   : {config.get('copy_timeout', 30)}")
+    print(f"🔹 Compress backup : {args.compress}")
     print(f"🕓 Timestamp       : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
 
     if not args.yes:
@@ -60,7 +62,7 @@ def main():
 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     log_path_message = setup_logging(timestamp)
-    backup_home_directory(config, timestamp, dry_run=args.dry_run)
+    backup_home_directory(config, timestamp, dry_run=args.dry_run, compress=args.compress)
     print(log_path_message)
     sys.exit(0)
 
