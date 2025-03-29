@@ -1,10 +1,11 @@
 [project]
 name = "homebak"
-version = "0.1.0"
-description = "Simple home directory backup tool"
-authors = [{name = "yiit"}]
+version = "0.1.0b2"
+description = "Simple, configurable home directory backup tool"
 readme = "README.md"
-license = {text = "MIT"}
+authors = [{ name = "Yigit Tuncer", email = "yigittuncer@gmail.com" }]
+license = { text = "MIT" }
+requires-python = ">=3.8"
 dependencies = ["pyyaml", "tqdm", "platformdirs"]
 
 [project.scripts]
@@ -13,3 +14,8 @@ homebak = "homebak.cli:main"
 [build-system]
 requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[project.urls]
+Homepage = "https://github.com/yigittuncer07/homebak"
+Repository = "https://github.com/yigittuncer07/homebak"
+Issues = "https://github.com/yigittuncer07/homebak/issues"

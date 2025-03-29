@@ -1,8 +1,7 @@
 backup_location: "/media/$USER/backup/backups"  
 copy_timeout: 60  # Timeout for copying each file in seconds
-exclude_directories:
+exclude_directory_names:
   - ".cache"  
-  - ".local/share/Trash"
   - ".steam"
   - ".steampath"
   - ".steampid"
@@ -10,7 +9,7 @@ exclude_directories:
   - ".conda"
   - ".condarc"
   - ".dotnet"
-  - ".steampath"
+  - ".steampath"  
   - "snap"
   - "venv"
   - ".venv"
@@ -19,7 +18,6 @@ exclude_directories:
   - "artifacts"
   - ".zoom"
   - "anaconda3"
-  - ".dotnet"
   - ".modelsim"
   - "opt"
   - ".local"
