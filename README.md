@@ -24,6 +24,7 @@ pip install homebak
 homebak               # Run with confirmation
 homebak --yes         # Skip confirmation
 homebak --dry-run     # Simulate backup only
+homebak --compress    # Compress at the end of the backup
 homebak edit-config   # Open config file in $EDITOR
 ```
 
@@ -48,4 +49,4 @@ Just run it. `homebak` will:
 1. Walk your home directory
 2. Exclude folders you don't care about
 3. Copy the rest with timeout protection
-4. Compress everything into a single `.tar.gz` archive
+4. Compress everything into a single `.tar.gz` archive if flag is set
