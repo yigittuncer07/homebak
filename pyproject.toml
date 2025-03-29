@@ -1,0 +1,15 @@
+[project]
+name = "homebak"
+version = "0.1.0"
+description = "Simple home directory backup tool"
+authors = [{name = "yiit"}]
+readme = "README.md"
+license = {text = "MIT"}
+dependencies = ["pyyaml", "tqdm", "platformdirs"]
+
+[project.scripts]
+homebak = "homebak.cli:main"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
